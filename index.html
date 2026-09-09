@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PHOTON | فوتون</title>
+  <meta name="description" content="PHOTON | فوتون - منصة تعليمية للصف الثاني بكالوريا، مسار طب وعلوم حياة">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- رابط مكتبة Supabase المستقر -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="container nav-inner">
+
+      <a href="#" class="brand" onclick="showPage('home'); return false;">
+        <div class="brand-mark">
+          <span></span>
+          <i></i>
+        </div>
+
+        <div>
+          <strong>PHOTON</strong>
+          <small>فوتون</small>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#" class="active" data-page="home">الرئيسية</a>
+        <a href="#" data-page="subjects">المواد</a>
+        <a href="#" data-page="library">المكتبة</a>
+        <a href="#" data-page="exams">الامتحانات</a>
+        <a href="#" data-page="dashboard">لوحتي</a>
+        <a href="#" data-page="about">عن فوتون</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="login-btn" onclick="openLogin()">
+          تسجيل الدخول
+        </button>
+
+        <button class="menu-btn" id="menuBtn" aria-label="القائمة">
+          ☰
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ================= HOME ================= -->
+  <main id="home" class="page active-page">
+
+    <section class="hero">
+      <div class="hero-grid"></div>
+
+      <div class="container hero-content">
+
+        <div class="hero-text">
+
+          <div class="eyebrow">
+            <span class="pulse"></span>
+            الصف الثاني بكالوريا • مسار طب وعلوم حياة
+          </div>
+
+          <h1>
+            افهم أكثر.
+            <span>تعلّم أذكى.</span>
+            اصنع مستقبلك.
+          </h1>
+
+          <p>
+            PHOTON | فوتون هي مساحتك التعليمية الذكية التي تجمع
+            بين الفهم، التدريب، التنظيم، والمتابعة في تجربة واحدة
+            مصممة لتساعدك على الوصول لهدفك.
+          </p>
+
+          <div class="hero-buttons">
+            <button class="primary-btn" onclick="showPage('subjects')">
+              ابدأ التعلم
+              <span>←</span>
+            </button>
+
+            <button class="secondary-btn" onclick="showPage('about')">
+              اكتشف فوتون
+            </button>
+          </div>
+
+          <div class="hero-trust">
+            <div class="avatars">
+              <span>ط</span>
+              <span>ع</span>
+              <span>ف</span>
+            </div>
+
+            <p>
+              تعلّم • تدرب • تابع تقدمك
+            </p>
+          </div>
+
+        </div>
+
+
+        <!-- HERO VISUAL -->
+        <div class="hero-visual">
+
+          <div class="orbital orbital-one"></div>
+          <div class="orbital orbital-two"></div>
+
+          <div class="photon-core">
+            <div class="core-light"></div>
+            <span>PHOTON</span>
+          </div>
+
+          <div class="floating-card card-top">
+            <span class="mini-icon">✓</span>
+            <div>
+              <b>إنجاز اليوم</b>
+              <small>3 دروس مكتملة</small>
+            </div>
+          </div>
+
+          <div class="floating-card card-bottom">
+            <span class="mini-icon">⚡</span>
+            <div>
+              <b>+120 نقطة</b>
+              <small>رصيدك التعليمي</small>
+            </div>
+          </div>
+
+          <div class="floating-card card-side">
+            <strong>87%</strong>
+            <small>نسبة الإنجاز</small>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- QUICK ACCESS -->
+    <section class="quick-section">
+      <div class="container">
+
+        <div class="quick-grid">
+
+          <button class="quick-card" onclick="showPage('subjects')">
+            <div class="quick-icon blue">◈</div>
+            <div>
+              <b>المواد الدراسية</b>
+              <span>4 مواد أساسية</span>
+            </div>
+            <strong>←</strong>
+          </button>
+
+          <button class="quick-card" onclick="showPage('library')">
+            <div class="quick-icon purple">▤</div>
+            <div>
+              <b>المكتبة</b>
+              <span>كتب ومصادر تعليمية</span>
+            </div>
+            <strong>←</strong>
+          </button>
+
+          <button class="quick-card" onclick="showPage('exams')">
+            <div class="quick-icon orange">✎</div>
+            <div>
+              <b>الامتحانات</b>
+              <span>اختبر مستواك</span>
+            </div>
+            <strong>←</strong>
+          </button>
+
+          <button class="quick-card" onclick="showPage('dashboard')">
+            <div class="quick-icon green">◔</div>
+            <div>
+              <b>لوحتي</b>
+              <span>تابع تقدمك</span>
+            </div>
+            <strong>←</strong>
+          </button>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SUBJECTS PREVIEW -->
+    <section class="section">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-label">تعلّم بذكاء</span>
+            <h2>المواد الدراسية</h2>
+          </div>
+
+          <button class="text-btn" onclick="showPage('subjects')">
+            عرض كل المواد ←
+          </button>
+        </div>
+
+
+        <div class="subject-grid">
+
+          <article class="subject-card physics" onclick="openSubject('physics')">
+            <div class="subject-number">01</div>
+            <div class="subject-icon">Φ</div>
+
+            <div class="subject-info">
+              <span>العلوم الفيزيائية</span>
+              <h3>الفيزياء</h3>
+              <p>افهم القوانين وحوّل المسائل إلى خطوات واضحة.</p>
+            </div>
+
+            <div class="subject-footer">
+              <span>12 درسًا</span>
+              <b>←</b>
+            </div>
+          </article>
+
+
+          <article class="subject-card history" onclick="openSubject('history')">
+            <div class="subject-number">02</div>
+            <div class="subject-icon">⌘</div>
+
+            <div class="subject-info">
+              <span>المجال الإنساني</span>
+              <h3>التاريخ الوطني</h3>
+              <p>رتّب الأحداث وافهم السياق بدلًا من الحفظ فقط.</p>
+            </div>
+
+            <div class="subject-footer">
+              <span>10 دروس</span>
+              <b>←</b>
+            </div>
+          </article>
+
+
+          <article class="subject-card english" onclick="openSubject('english')">
+            <div class="subject-number">03</div>
+            <div class="subject-icon">Aa</div>
+
+            <div class="subject-info">
+              <span>Language</span>
+              <h3>اللغة الإنجليزية</h3>
+              <p>طوّر مهاراتك في اللغة بطريقة عملية ومنظمة.</p>
+            </div>
+
+            <div class="subject-footer">
+              <span>14 درسًا</span>
+              <b>←</b>
+            </div>
+          </article>
+
+
+          <article class="subject-card arabic" onclick="openSubject('arabic')">
+            <div class="subject-number">04</div>
+            <div class="subject-icon">ع</div>
+
+            <div class="subject-info">
+              <span>اللغة والأدب</span>
+              <h3>اللغة العربية</h3>
+              <p>فهم النصوص والقواعد والتدريب على الأسئلة.</p>
+            </div>
+
+            <div class="subject-footer">
+              <span>15 درسًا</span>
+              <b>←</b>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PROGRESS -->
+    <section class="progress-home">
+      <div class="container">
+
+        <div class="progress-box">
+
+          <div>
+            <span class="section-label light-label">رحلتك التعليمية</span>
+
+            <h2>
+              كل خطوة صغيرة...
+              <br>
+              <span>تقرّبك من هدفك.</span>
+            </h2>
+
+            <p>
+              تابع إنجازك، أكمل دروسك، اختبر نفسك،
+              واجمع النقاط أثناء رحلتك في فوتون.
+            </p>
+
+            <button class="white-btn" onclick="showPage('dashboard')">
+              افتح لوحتي
+              <span>←</span>
+            </button>
+          </div>
+
+
+          <div class="progress-circle">
+            <div>
+              <strong id="homeProgress">0%</strong>
+              <span>إنجازك</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================= SUBJECTS PAGE ================= -->
+  <main id="subjects" class="page">
+
+    <section class="page-header">
+      <div class="container">
+
+        <span class="section-label">مسارك التعليمي</span>
+        <h1>المواد الدراسية</h1>
+        <p>
+          اختر المادة التي تريد البدء بها واستكشف الدروس
+          والمصادر والاختبارات.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="container">
+
+        <div class="subject-grid large">
+
+          <article class="subject-card physics" onclick="openSubject('physics')">
+            <div class="subject-number">01</div>
+            <div class="subject-icon">Φ</div>
+
+            <div class="subject-info">
+              <span>العلوم الفيزيائية</span>
+              <h3>الفيزياء</h3>
+              <p>دروس، مصادر، تدريبات واختبارات تساعدك على بناء فهم حقيقي.</p>
+            </div>
+
+            <div class="subject-footer">
+              <span>12 درسًا • 8 اختبارات</span>
+              <b>←</b>
+            </div>
+          </article>
+
+
+          <article class="subject-card history" onclick="openSubject('history')">
+            <div class="subject-number">02</div>
+            <div class="subject-icon">⌘</div>
+
+            <div class="subject-info">
+              <span>المجال الإنساني</span>
+              <h3>التاريخ الوطني</h3>
+              <p>تعلّم الأحداث والشخصيات والمراحل بطريقة مترابطة.</p>
+            </div>
+
+            <div class="subject-footer">
+              <span>10 دروس • 6 اختبارات</span>
+              <b>←</b>
+            </div>
+          </article>
+
+
+          <article class="subject-card english" onclick="openSubject('english')">
+            <div class="subject-number">03</div>
+            <div class="subject-icon">Aa</div>
+
+            <div class="subject-info">
+              <span>Language</span>
+              <h3>اللغة الإنجليزية</h3>
+              <p>Grammar، Vocabulary، Reading وWriting في مسار واحد.</p>
+            </div>
+
+            <div class="subject-footer">
+              <span>14 درسًا • 7 اختبارات</span>
+              <b>←</b>
+            </div>
+          </article>
+
+
+          <article class="subject-card arabic" onclick="openSubject('arabic')">
+            <div class="subject-number">04</div>
+            <div class="subject-icon">ع</div>
+
+            <div class="subject-info">
+              <span>اللغة والأدب</span>
+              <h3>اللغة العربية</h3>
+              <p>النحو، البلاغة، الأدب، القراءة والتدريب المستمر.</p>
+            </div>
+
+            <div class="subject-footer">
+              <span>15 درسًا • 8 اختبارات</span>
+              <b>←</b>
+            </div>
+          </article>
+
+        </div>
+
+
+        <!-- LESSONS -->
+        <div class="subsection-heading">
+          <div>
+            <span class="section-label">آخر الدروس</span>
+            <h2>ابدأ من هنا</h2>
+          </div>
+        </div>
+
+        <div class="lessons-list" id="lessonsList">
+
+          <article class="lesson-card">
+            <div class="lesson-icon physics-icon">Φ</div>
+
+            <div class="lesson-main">
+              <span>الفيزياء</span>
+              <h3>الحركة والقوانين الأساسية</h3>
+              <p>مدخل لفهم الحركة والكميات الفيزيائية الأساسية.</p>
+            </div>
+
+            <div class="lesson-meta">
+              <span>25 دقيقة</span>
+              <button onclick="completeLesson(this, 'الحركة والقوانين الأساسية')">
+                ابدأ
+              </button>
+            </div>
+          </article>
+
+
+          <article class="lesson-card">
+            <div class="lesson-icon history-icon">⌘</div>
+
+            <div class="lesson-main">
+              <span>التاريخ الوطني</span>
+              <h3>مدخل إلى التاريخ الوطني</h3>
+              <p>تعرف على أهم المراحل والأحداث الأساسية.</p>
+            </div>
+
+            <div class="lesson-meta">
+              <span>20 دقيقة</span>
+              <button onclick="completeLesson(this, 'مدخل إلى التاريخ الوطني')">
+                ابدأ
+              </button>
+            </div>
+          </article>
+
+
+          <article class="lesson-card">
+            <div class="lesson-icon english-icon">Aa</div>
+
+            <div class="lesson-main">
+              <span>اللغة الإنجليزية</span>
+              <h3>Building Strong Vocabulary</h3>
+              <p>مجموعة من الاستراتيجيات لتوسيع حصيلتك اللغوية.</p>
+            </div>
+
+            <div class="lesson-meta">
+              <span>30 دقيقة</span>
+              <button onclick="completeLesson(this, 'Building Strong Vocabulary')">
+                ابدأ
+              </button>
+            </div>
+          </article>
+
+
+          <article class="lesson-card">
+            <div class="lesson-icon arabic-icon">ع</div>
+
+            <div class="lesson-main">
+              <span>اللغة العربية</span>
+              <h3>أساسيات النحو</h3>
+              <p>مراجعة عملية لأهم القواعد التي تحتاجها.</p>
+            </div>
+
+            <div class="lesson-meta">
+              <span>25 دقيقة</span>
+              <button onclick="completeLesson(this, 'أساسيات النحو')">
+                ابدأ
+              </button>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================= LIBRARY ================= -->
+  <main id="library" class="page">
+
+    <section class="page-header dark-header">
+      <div class="container">
+
+        <span class="section-label">مصادرك في مكان واحد</span>
+        <h1>المكتبة</h1>
+
+        <p>
+          كتب وملخصات ومصادر تعليمية تساعدك في رحلتك.
+        </p>
+
+        <div class="library-search">
+          <span>⌕</span>
+          <input
+            type="text"
+            id="bookSearch"
+            placeholder="ابحث عن كتاب أو مصدر..."
+          >
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="library-section">
+      <div class="container">
+
+        <div class="filter-bar">
+
+          <button class="filter active" data-filter="all">
+            الكل
+          </button>
+
+          <button class="filter" data-filter="physics">
+            الفيزياء
+          </button>
+
+          <button class="filter" data-filter="history">
+            التاريخ الوطني
+          </button>
+
+          <button class="filter" data-filter="english">
+            الإنجليزية
+          </button>
+
+          <button class="filter" data-filter="arabic">
+            العربية
+          </button>
+
+        </div>
+
+
+        <div class="books-grid" id="booksGrid">
+
+          <article class="book-card" data-subject="physics" data-title="أساسيات الفيزياء">
+
+            <div class="book-cover physics-cover">
+              <span>Φ</span>
+              <small>PHOTON</small>
+            </div>
+
+            <div class="book-content">
+              <span class="book-category">الفيزياء</span>
+              <h3>أساسيات الفيزياء</h3>
+              <p>مرجع تمهيدي للمفاهيم الأساسية.</p>
+
+              <button onclick="openResource('أساسيات الفيزياء')">
+                عرض المصدر
+              </button>
+            </div>
+
+          </article>
+
+
+          <article class="book-card" data-subject="physics" data-title="ملخص القوانين الفيزيائية">
+
+            <div class="book-cover blue-cover">
+              <span>∑</span>
+              <small>PHYSICS</small>
+            </div>
+
+            <div class="book-content">
+              <span class="book-category">الفيزياء</span>
+              <h3>ملخص القوانين الفيزيائية</h3>
+              <p>مراجعة سريعة لأهم العلاقات والقوانين.</p>
+
+              <button onclick="openResource('ملخص القوانين الفيزيائية')">
+                عرض المصدر
+              </button>
+            </div>
+
+          </article>
+
+
+          <article class="book-card" data-subject="history" data-title="التاريخ الوطني">
+
+            <div class="book-cover history-cover">
+              <span>⌘</span>
+              <small>HISTORY</small>
+            </div>
+
+            <div class="book-content">
+              <span class="book-category">التاريخ الوطني</span>
+              <h3>التاريخ الوطني</h3>
+              <p>ملخص منظم لأهم المحطات والأحداث.</p>
+
+              <button onclick="openResource('التاريخ الوطني')">
+                عرض المصدر
+              </button>
+            </div>
+
+          </article>
+
+
+          <article class="book-card" data-subject="english" data-title="English Skills">
+
+            <div class="book-cover english-cover">
+              <span>Aa</span>
+              <small>ENGLISH</small>
+            </div>
+
+            <div class="book-content">
+              <span class="book-category">اللغة الإنجليزية</span>
+              <h3>English Skills</h3>
+              <p>Vocabulary, grammar and writing practice.</p>
+
+              <button onclick="openResource('English Skills')">
+                عرض المصدر
+              </button>
+            </div>
+
+          </article>
+
+
+          <article class="book-card" data-subject="arabic" data-title="دليل اللغة العربية">
+
+            <div class="book-cover arabic-cover">
+              <span>ع</span>
+              <small>ARABIC</small>
+            </div>
+
+            <div class="book-content">
+              <span class="book-category">اللغة العربية</span>
+              <h3>دليل اللغة العربية</h3>
+              <p>مراجعة منظمة للقواعد والمهارات.</p>
+
+              <button onclick="openResource('دليل اللغة العربية')">
+                عرض المصدر
+              </button>
+            </div>
+
+          </article>
+
+
+          <article class="book-card" data-subject="arabic" data-title="التدريب على النصوص">
+
+            <div class="book-cover dark-cover">
+              <span>ن</span>
+              <small>PHOTON</small>
+            </div>
+
+            <div class="book-content">
+              <span class="book-category">اللغة العربية</span>
+              <h3>التدريب على النصوص</h3>
+              <p>نماذج تدريبية لفهم النصوص وتحليلها.</p>
+
+              <button onclick="openResource('التدريب على النصوص')">
+                عرض المصدر
+              </button>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================= EXAMS ================= -->
+  <main id="exams" class="page">
+
+    <section class="page-header">
+      <div class="container">
+
+        <span class="section-label">اختبر نفسك</span>
+        <h1>الامتحانات والتدريبات</h1>
+
+        <p>
+          التدريب المستمر هو الطريق الحقيقي لقياس مستواك.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="exam-categories">
+
+          <button class="exam-type active">
+            <strong>اختبارات تدريبية</strong>
+            <span>اختبر فهمك بعد كل درس</span>
+          </button>
+
+          <button class="exam-type">
+            <strong>نماذج امتحانات</strong>
+            <span>تدريب يحاكي الامتحان</span>
+          </button>
+
+          <button class="exam-type">
+            <strong>امتحانات سابقة</strong>
+            <span>تدرب على نماذج سابقة</span>
+          </button>
+
+        </div>
+
+
+        <div class="exam-grid">
+
+          <article class="exam-card physics">
+            <div class="exam-card-icon">Φ</div>
+            <span>الفيزياء</span>
+            <h3>اختبار الفيزياء</h3>
+            <p>أسئلة متنوعة لقياس فهمك للمفاهيم الأساسية.</p>
+
+            <div class="exam-bottom">
+              <span>10 أسئلة</span>
+              <button onclick="startExam('physics')">
+                ابدأ الاختبار
+              </button>
+            </div>
+          </article>
+
+
+          <article class="exam-card history">
+            <div class="exam-card-icon">⌘</div>
+            <span>التاريخ الوطني</span>
+            <h3>اختبار التاريخ</h3>
+            <p>اختبر قدرتك على الربط بين الأحداث والمراحل.</p>
+
+            <div class="exam-bottom">
+              <span>10 أسئلة</span>
+              <button onclick="startExam('history')">
+                ابدأ الاختبار
+              </button>
+            </div>
+          </article>
+
+
+          <article class="exam-card english">
+            <div class="exam-card-icon">Aa</div>
+            <span>اللغة الإنجليزية</span>
+            <h3>English Quiz</h3>
+            <p>Vocabulary and grammar practice.</p>
+
+            <div class="exam-bottom">
+              <span>10 أسئلة</span>
+              <button onclick="startExam('english')">
+                ابدأ الاختبار
+              </button>
+            </div>
+          </article>
+
+
+          <article class="exam-card arabic">
+            <div class="exam-card-icon">ع</div>
+            <span>اللغة العربية</span>
+            <h3>اختبار اللغة العربية</h3>
+            <p>تدريبات متنوعة في اللغة والقواعد.</p>
+
+            <div class="exam-bottom">
+              <span>10 أسئلة</span>
+              <button onclick="startExam('arabic')">
+                ابدأ الاختبار
+              </button>
+            </div>
+          </article>
+
+        </div>
+
+
+        <div class="exam-info">
+
+          <div>
+            <strong>💡 نصيحة فوتون</strong>
+            <p>
+              لا تهتم بالدرجة فقط. ركّز على معرفة الأخطاء
+              التي وقعت فيها وتعلّم منها.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= DASHBOARD ================= -->
+  <main id="dashboard" class="page">
+
+    <section class="dashboard-top">
+
+      <div class="container">
+
+        <div class="welcome">
+          <div>
+            <span class="section-label">لوحة الطالب</span>
+            <h1>
+              أهلًا بك،
+              <span id="studentNameDisplay">يا بطل</span> 👋
+            </h1>
+            <p>خلينا نكمل رحلتك التعليمية النهارده.</p>
+          </div>
+
+          <button class="primary-btn small" onclick="showPage('subjects')">
+            واصل التعلم ←
+          </button>
+        </div>
+
+
+        <div class="stats-grid">
+
+          <div class="stat-card">
+            <span class="stat-icon blue">⚡</span>
+            <div>
+              <small>النقاط</small>
+              <strong id="pointsValue">0</strong>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-icon green">✓</span>
+            <div>
+              <small>الدروس المكتملة</small>
+              <strong id="lessonsValue">0</strong>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-icon orange">✎</span>
+            <div>
+              <small>الاختبارات</small>
+              <strong id="examsValue">0</strong>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-icon purple">★</span>
+            <div>
+              <small>الشارات</small>
+              <strong id="badgesValue">0</strong>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="section dashboard-section">
+
+      <div class="container dashboard-grid">
+
+        <div class="dashboard-main">
+
+          <div class="panel progress-panel">
+
+            <div class="panel-title">
+              <div>
+                <span class="section-label">تقدمك</span>
+                <h2>رحلتك التعليمية</h2>
+              </div>
+
+              <strong id="dashboardProgress">0%</strong>
+            </div>
+
+            <div class="big-progress">
+              <span id="bigProgressBar"></span>
+            </div>
+
+            <div class="progress-details">
+              <span>البداية</span>
+              <span>هدفك القادم: 100%</span>
+            </div>
+
+          </div>
+
+
+          <div class="panel">
+
+            <div class="panel-title">
+              <div>
+                <span class="section-label">إنجازاتك</span>
+                <h2>الشارات</h2>
+              </div>
+            </div>
+
+
+            <div class="achievements">
+
+              <div class="achievement unlocked">
+                <span>⚡</span>
+                <b>البداية</b>
+                <small>أول خطوة</small>
+              </div>
+
+              <div class="achievement" id="badgeLesson">
+                <span>📚</span>
+                <b>متعلم</b>
+                <small>أكمل 5 دروس</small>
+              </div>
+
+              <div class="achievement">
+                <span>🎯</span>
+                <b>متدرب</b>
+                <small>أول اختبار</small>
+              </div>
+
+              <div class="achievement">
+                <span>🏆</span>
+                <b>متفوق</b>
+                <small>500 نقطة</small>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <aside class="dashboard-side">
+
+          <div class="profile-card">
+
+            <div class="profile-avatar">
+              <span>أ</span>
+            </div>
+
+            <h3 id="profileName">طالب فوتون</h3>
+            <p>الصف الثاني بكالوريا</p>
+
+            <button onclick="openLogin()">
+              تسجيل / دخول
+            </button>
+
+          </div>
+
+
+          <div class="panel leaderboard">
+
+            <div class="panel-title">
+              <div>
+                <span class="section-label">التنافس</span>
+                <h2>أوائل فوتون</h2>
+              </div>
+            </div>
+
+
+            <div class="leader-row first">
+              <span>01</span>
+              <b>طالب فوتون</b>
+              <strong>950</strong>
+            </div>
+
+            <div class="leader-row">
+              <span>02</span>
+              <b>متعلم متميز</b>
+              <strong>870</strong>
+            </div>
+
+            <div class="leader-row">
+              <span>03</span>
+              <b>صانع المستقبل</b>
+              <strong>810</strong>
+            </div>
+
+            <div class="leader-row">
+              <span>04</span>
+              <b>طالب مجتهد</b>
+              <strong>760</strong>
+            </div>
+
+          </div>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= ABOUT ================= -->
+  <main id="about" class="page">
+
+    <section class="about-hero">
+
+      <div class="container">
+
+        <span class="section-label">عن فوتون</span>
+
+        <h1>
+          مش مجرد منصة...
+          <br>
+          <span>دي طريقة جديدة للتعلّم.</span>
+        </h1>
+
+        <p>
+          PHOTON | فوتون ليست مجرد منصة تعليمية، بل مساحة صُممت
+          لتغيّر طريقة تعلّم الطالب.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="about-grid">
+
+          <div class="about-text">
+
+            <span class="section-label">فلسفتنا</span>
+
+            <h2>الفهم أولًا.</h2>
+
+            <p>
+              PHOTON | فوتون ليست مجرد منصة تعليمية، بل مساحة صُممت
+              لتغيّر طريقة تعلّم الطالب.
+            </p>
+
+            <p>
+              من الفيزياء إلى التاريخ الوطني واللغة الإنجليزية،
+              تجمع فوتون بين الفهم، التدريب، والتنظيم في تجربة
+              تعليمية واحدة، هدفها أن تجعل الطالب أكثر قدرة على
+              التفكير، وأكثر ثقة في مستواه، وأكثر استعدادًا للمستقبل.
+            </p>
+
+            <p>
+              نحن لا نؤمن بأن التفوق هو حفظ أكبر قدر من المعلومات؛
+              بل نؤمن بأن التفوق الحقيقي يبدأ عندما تفهم ما تتعلمه،
+              وتعرف كيف تستخدمه.
+            </p>
+
+          </div>
+
+
+          <div class="about-visual">
+
+            <div class="about-orb">
+              <span>PHOTON</span>
+            </div>
+
+            <div class="about-stat stat-a">
+              <strong>01</strong>
+              <span>افهم</span>
+            </div>
+
+            <div class="about-stat stat-b">
+              <strong>02</strong>
+              <span>تدرّب</span>
+            </div>
+
+            <div class="about-stat stat-c">
+              <strong>03</strong>
+              <span>تقدّم</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- FOUNDER -->
+
+        <div class="founder-section">
+
+          <div class="founder-badge">
+            فكرة فوتون
+          </div>
+
+          <div>
+
+            <span class="section-label">صاحبة الفكرة</span>
+
+            <h2>Asmaa Harfoush</h2>
+
+            <p>
+              Asmaa Harfoush هي صاحبة فكرة PHOTON، وشخصية شغوفة
+              بالفيزياء والطب وعلوم الحياة والبرمجة.
+            </p>
+
+            <p>
+              جاءت فكرة فوتون من إيمان بسيط:
+              <strong>كل طالب لديه القدرة على الوصول، لكنه يحتاج إلى الطريق الصحيح.</strong>
+            </p>
+
+            <p>
+              لذلك تهدف فوتون إلى بناء تجربة تعليمية تساعد الطالب
+              على اكتشاف قدراته، وتنظيم رحلته التعليمية، وتحويل
+              المذاكرة إلى خطوات واضحة نحو الهدف.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= SUBJECT MODAL ================= -->
+  <div class="modal" id="subjectModal">
+
+    <div class="modal-box subject-modal-box">
+
+      <button class="close-modal" onclick="closeModal('subjectModal')">
+        ×
+      </button>
+
+      <div class="modal-subject-head">
+
+        <div class="modal-subject-icon" id="modalSubjectIcon">
+          Φ
+        </div>
+
+        <div>
+          <span id="modalSubjectLabel">العلوم الفيزيائية</span>
+          <h2 id="modalSubjectTitle">الفيزياء</h2>
+        </div>
+
+      </div>
+
+
+      <div class="modal-tabs">
+
+        <button class="modal-tab active" data-tab="lessons">
+          الدروس
+        </button>
+
+        <button class="modal-tab" data-tab="resources">
+          المصادر
+        </button>
+
+        <button class="modal-tab" data-tab="practice">
+          التدريب
+        </button>
+
+      </div>
+
+
+      <div class="modal-tab-content" id="subjectModalContent">
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= EXAM MODAL ================= -->
+  <div class="modal" id="examModal">
+
+    <div class="modal-box exam-modal-box">
+
+      <button class="close-modal" onclick="closeModal('examModal')">
+        ×
+      </button>
+
+      <div id="examContent"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= LOGIN MODAL ================= -->
+  <div class="modal" id="loginModal">
+
+    <div class="modal-box login-box">
+
+      <button class="close-modal" onclick="closeModal('loginModal')">
+        ×
+      </button>
+
+      <div class="login-logo">
+        <div class="brand-mark">
+          <span></span>
+          <i></i>
+        </div>
+      </div>
+
+      <span class="section-label">أهلًا بك في فوتون</span>
+
+      <h2>ابدأ رحلتك التعليمية</h2>
+
+      <p>أدخل بياناتك للتسجيل أو الدخول إلى المنصة</p>
+
+      <input
+        type="text"
+        id="studentNameInput"
+        class="login-input"
+        placeholder="الاسم بالكامل (إنشاء حساب)..."
+        style="margin-bottom: 10px;"
+      >
+
+      <input
+        type="email"
+        id="studentEmailInput"
+        class="login-input"
+        placeholder="البريد الإلكتروني..."
+        style="margin-bottom: 10px;"
+      >
+
+      <input
+        type="password"
+        id="studentPasswordInput"
+        class="login-input"
+        placeholder="كلمة السر..."
+        style="margin-bottom: 15px;"
+      >
+
+      <div style="display: flex; gap: 10px;">
+        <button class="primary-btn full" onclick="handleSignUp()">
+          حساب جديد
+        </button>
+        <button class="secondary-btn full" onclick="handleLogin()">
+          تسجيل دخول
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= RESOURCE MODAL ================= -->
+  <div class="modal" id="resourceModal">
+
+    <div class="modal-box resource-box">
+
+      <button class="close-modal" onclick="closeModal('resourceModal')">
+        ×
+      </button>
+
+      <div class="resource-placeholder">
+
+        <div class="resource-icon">▤</div>
+
+        <span class="section-label">مكتبة فوتون</span>
+
+        <h2 id="resourceTitle">المصدر</h2>
+
+        <p>
+          هذا مكان مخصص لملف الكتاب أو الـPDF.
+          يمكنك إضافة الملف الحقيقي لاحقًا.
+        </p>
+
+        <div class="coming-soon">
+          المصدر سيُضاف قريبًا
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= TOAST ================= -->
+  <div class="toast" id="toast">
+    <span>✓</span>
+    <p id="toastMessage">تم بنجاح</p>
+  </div>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <a href="#" class="brand">
+            <div class="brand-mark">
+              <span></span>
+              <i></i>
+            </div>
+
+            <div>
+              <strong>PHOTON</strong>
+              <small>فوتون</small>
+            </div>
+          </a>
+
+          <p>
+            شرارة معرفة... تصنع مستقبلًا.
+          </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+          <h4>المنصة</h4>
+
+          <a href="#" onclick="showPage('subjects'); return false;">
+            المواد الدراسية
+          </a>
+
+          <a href="#" onclick="showPage('library'); return false;">
+            المكتبة
+          </a>
+
+          <a href="#" onclick="showPage('exams'); return false;">
+            الامتحانات
+          </a>
+
+          <a href="#" onclick="showPage('dashboard'); return false;">
+            لوحتي
+          </a>
+
+        </div>
+
+
+        <div class="footer-links">
+
+          <h4>فوتون</h4>
+
+          <a href="#" onclick="showPage('about'); return false;">
+            عن فوتون
+          </a>
+
+          <a href="#">
+            المساعدة
+          </a>
+
+          <a href="#">
+            تواصل معنا
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <p>
+          © 2026 PHOTON | فوتون. جميع الحقوق محفوظة.
+        </p>
+
+        <div class="creator">
+          <span>مصمم ومطور بواسطة</span>
+          <strong>𝑫𝒓. 𝑨𝒔𝒎𝒂𝒂 𝑯𝒂𝒓𝒇𝒐𝒖𝒔𝒉</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
